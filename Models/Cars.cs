@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
 
 namespace Dealership.Models
 {
+  
   public class Car
+  
   {
+    private static List<Car> Cars = new List<Car>(){};
+
     private string _makeModel;
     private int _price;
     private int _miles;
@@ -18,10 +23,26 @@ namespace Dealership.Models
       _info = info;
     }
 
+    /////////////////////////////////////////////////////////
+    /////////////// CAR LIST Get : Set //////////////////////
+    public static void addCarToList(Car auto)
+    {
+      Cars.Add(auto);
+    }
+
+    public static List<Car> GetCarList()
+    {
+      return Cars;
+    }
+
+    //////////////////////////////////////////////////////////
+    //////////////  CAR OBJECT Get : Set /////////////////////
+
     public void SetPrice(int newPrice)
     {
       _price = newPrice;
     }
+
 
     public string GetMakeModel()
     {
@@ -47,5 +68,9 @@ namespace Dealership.Models
     {
       return (_miles < maxMileage);
     }
+
+
+
+
   }
 }
